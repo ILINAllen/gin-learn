@@ -1,22 +1,24 @@
 package mydatabase
 
 import (
-	"database/sql"
 	"log"
 
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/go-xorm/xorm"
 )
 
-var SqlDB *sql.DB
+var Engine *xorm.Engine
 
 func init() {
+
 	var err error
-	SqlDB, err = sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/test?charset=utf8")
+	Engine, err = xorm.NewEngine("mysql", "root:@tcp(127.0.0.1:3306)/test?charset=utf8")
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-	err = SqlDB.Ping()
+	err = Engine.Ping()
 	if err != nil {
 		log.Fatal(err.Error())
 	}
+
 }
