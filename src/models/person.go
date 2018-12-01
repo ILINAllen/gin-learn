@@ -1,7 +1,7 @@
 package models
 
 import (
-	db "mydatabase"
+	db "myDatabase"
 )
 
 type Person struct {

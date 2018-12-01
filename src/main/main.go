@@ -1,7 +1,7 @@
 package main
 
 import (
-	db "mydatabase"
+	db "myDatabase"
 )
 
 func main() {

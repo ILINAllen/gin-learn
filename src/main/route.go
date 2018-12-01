@@ -1,7 +1,7 @@
 package main
 
 import (
-	"myapis"
+	"myApis"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,17 +9,17 @@ import (
 func initRouter() *gin.Engine {
 	router := gin.Default()
 
-	router.GET("/", myapis.IndexApi)
+	router.GET("/", myApis.IndexApi)
 
-	router.POST("/person", myapis.AddPersonApi)
+	router.POST("/person", myApis.AddPersonApi)
 
-	router.GET("/persons", myapis.GetPersonsApi)
+	router.GET("/persons", myApis.GetPersonsApi)
 
-	router.GET("/person/:id", myapis.GetPersonApi)
+	router.GET("/person/:id", myApis.GetPersonApi)
 
-	router.PUT("/person/:id", myapis.ModPersonApi)
+	router.PUT("/person/:id", myApis.ModPersonApi)
 
-	router.DELETE("/person/:id", myapis.DelPersonApi)
+	router.DELETE("/person/:id", myApis.DelPersonApi)
 
 	return router
 }
