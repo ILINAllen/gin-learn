@@ -41,7 +41,7 @@ post 127.0.0.1:8000/person?first_name=du&last_name=lili
   
 get 127.0.0.1:8000/persons   
 
-get 127.0.0.1:8000/person/1
+get 127.0.0.1:8000/person/2
 
 put 127.0.0.1:8000/person/1?first_name=kkk&last_name=ffff
 

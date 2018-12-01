@@ -11,29 +11,17 @@ type Person struct {
 }
 
 func (p *Person) AddPerson() (id int64, err error) {
-	rs, err := db.Engine.Exec("INSERT INTO person(first_name, last_name) VALUES (?, ?)", p.FirstName, p.LastName)
-	if err != nil {
-		return
-	}
-	id, err = rs.LastInsertId()
+	id, err = db.Engine.Insert(p)
 	return
 }
 
-func (p *Person) ModPerson() (ra int64, err error) {
-	rs, err := db.Engine.Exec("UPDATE person SET first_name = ?, last_name = ? WHERE id = ?", p.FirstName, p.LastName, p.Id)
-	if err != nil {
-		return
-	}
-	ra, err = rs.RowsAffected()
+func (p *Person) ModPerson() (id int64, err error) {
+	id, err = db.Engine.Where("id = ?", p.Id).Update(p)
 	return
 }
 
-func (p *Person) DelPerson() (ra int64, err error) {
-	rs, err := db.Engine.Exec("DELETE FROM person WHERE id = ?", p.Id)
-	if err != nil {
-		return
-	}
-	ra, err = rs.RowsAffected()
+func (p *Person) DelPerson() (id int64, err error) {
+	id, err = db.Engine.Where("id = ?", p.Id).Delete(p)
 	return
 }
 
@@ -57,7 +45,6 @@ func (p *Person) GetPersons() (persons []Person, err error) {
 
 // get person
 func (p *Person) GetPerson() (err error) {
-
 	_, err = db.Engine.Where("id = ?", p.Id).Get(p)
 	return
 }
