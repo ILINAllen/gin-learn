@@ -53,17 +53,17 @@
     <div class="row pull-right" style="margin-bottom: 20px;margin-right: 5px;text-align:right;margin-right: 40px;">
 
         <input type="text" placeholder="请输入名称" id="txt_search" />
-        <button class="" onclick="search()">搜索</button>
+        <button type="button" class="btn btn-info" onclick="search()">搜索</button>
 
-        <button class="" onclick="adddata()">新增</button>
+        <button type="button" class="btn btn-Primary" onclick="adddata()">新增</button>
     </div>
 
     <table class="table table-striped table-hover table-bordered ">
         <thead>
-            <th style="text-align: center">ID</th>
-            <th style="text-align: center">姓氏</th>
-            <th style="text-align: center">名称</th>
-            <th style="text-align: center">操作</th>
+            <th class="col-md-1 bodercss">ID</th>
+            <th class="col-md-1 bodercss">姓氏</th>
+            <th class="col-md-1 bodercss">名称</th>
+            <th class="col-md-1 bodercss">操作</th>
         </thead>
 
         <tbody id="sortable">
@@ -79,6 +79,9 @@
             </tr>
         </table>
     </div>
+
+
+    
 
     <script type="text/javascript">
         //页面的初始化
@@ -132,7 +135,7 @@
             $.ajax({
                 async: false,
                 type: "post",
-                url: "/home/PageNextData",
+                url: "",
                 data: {
                     search: search,
                     pageno: (parseInt(page_id) + parseInt(1)),
@@ -161,12 +164,12 @@
 
         //新增数据
         function adddata() {
-            window.location.href = "/home/add";
+            window.location.href = "/person/add";
         }
 
         //编辑数据
         function editdata(id) {
-            window.location.href = "/home/edit?id=" + id;
+            window.location.href = "/person/update/" + id;
         }
 
         //删除数据
@@ -174,7 +177,7 @@
             $.ajax({
                 async: false,
                 type: "post",
-                url: "/home/delete",
+                url: "/person/delete/",
                 data: {
                     id: id
                 },
