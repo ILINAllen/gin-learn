@@ -37,15 +37,15 @@ vscode中打开
 
 get 127.0.0.1:8000/
 
-post 127.0.0.1:8000/person?first_name=du&last_name=lili
+post 127.0.0.1:8000/person/add?first_name=du&last_name=lili
   
-get 127.0.0.1:8000/persons   
+get 127.0.0.1:8000/person/list   
 
-get 127.0.0.1:8000/person/2
+get 127.0.0.1:8000/person/get/2
 
-put 127.0.0.1:8000/person/1?first_name=kkk&last_name=ffff
+put 127.0.0.1:8000/person/update/1?first_name=kkk&last_name=ffff
 
-delete 127.0.0.1:8000/person/1
+delete 127.0.0.1:8000/person/delete/1
 
 ## 原作者的参考教程
 https://www.jianshu.com/p/a3f63b5da74c
